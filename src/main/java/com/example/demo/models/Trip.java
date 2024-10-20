@@ -15,7 +15,6 @@ public class Trip {
     public Trip() {
         super();
     }
-
     public Trip(String id, String tripName, String destination, String startDate, String endDate, Double budget) {
         super();
         this.id = id;

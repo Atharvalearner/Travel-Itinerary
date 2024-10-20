@@ -11,7 +11,11 @@ import com.example.demo.repositories.TripRepo;
 public class TripService {
 	@Autowired
     private TripRepo tripRepository;
+	
     public Trip createTrip(Trip trip) {
+    	if (tripRepository.existsById(trip.getId())) {
+            throw new IllegalArgumentException("Trip with the same ID already exists.");
+        }
         return tripRepository.save(trip);
     }
     public List<Trip> getAllTrips() {
