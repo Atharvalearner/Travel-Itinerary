@@ -14,45 +14,34 @@ public class TripController {
     @Autowired
     private TripService tripService;
     
-    // Show form for creating a trip
-    @GetMapping("/create")
+    @GetMapping("/create")			// Show form for creating a trip
     public String showCreateForm(Model model) {
         model.addAttribute("trip", new Trip());
         return "createTrip";
     }
-  
-    // Save a new trip
-    @PostMapping("/create")
+    @PostMapping("/create")    		// Save a new trip
     public String saveTrip(@ModelAttribute("trip") Trip trip) {
         tripService.createTrip(trip);
         return "redirect:/trips/list";
     }
-
-    // List all trips
-    @GetMapping("/list")
+    @GetMapping("/list")			// List all trips
     public String listTrips(Model model) {
         List<Trip> trips = tripService.getAllTrips();
         model.addAttribute("trips", trips);
         return "listTrips";
     }
-
-    // Edit a trip
-    @GetMapping("/edit/{id}")
+    @GetMapping("/edit/{id}")		// Edit a trip
     public String showEditForm(@PathVariable String id, Model model) {
         Trip trip = tripService.getTripById(id);
         model.addAttribute("trip", trip);
         return "editTrips";
     }
-
-    // Update trip
-    @PostMapping("/update")
+    @PostMapping("/update")			// Update trip
     public String updateTrip(@ModelAttribute Trip trip) {
         tripService.updateTrip(trip.getId(), trip);
         return "redirect:/trips/list";
     }
-
-    // Delete trip
-    @GetMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")		// Delete trip
     public String deleteTrip(@PathVariable String id) {
         tripService.deleteTrip(id);
         return "redirect:/trips/list";

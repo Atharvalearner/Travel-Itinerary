@@ -1,19 +1,37 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Edit Trip</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <h1>Edit Trip</h1>
-    <form action="/trips/update" method="POST">
-        <input type="hidden" name="id" th:value="${trip.id}">
-        <label>Trip Name:</label><input type="text" name="tripName" th:value="${trip.tripName}"><br>
-        <label>Destination:</label><input type="text" name="destination" th:value="${trip.destination}"><br>
-        <label>Start Date:</label><input type="date" name="startDate" th:value="${trip.startDate}"><br>
-        <label>End Date:</label><input type="date" name="endDate" th:value="${trip.endDate}"><br>
-        <label>Budget:</label><input type="number" name="budget" th:value="${trip.budget}"><br>
-        <label>Description:</label><input type="text" name="description" th:value="${trip.description}"><br>
-        <button type="submit">Update Trip</button>
-    </form>
-    <a href="/trips/list">Back to List</a>
+    <div class="container">
+        <h1>Edit Trip</h1>
+        <form action="/trips/update" method="POST" class="trip-form">
+            <input type="hidden" name="id" th:value="${trip.id}">
+            
+            <label for="tripName">Trip Name:</label>
+            <input type="text" name="tripName" th:value="${trip.tripName}"><br>
+            
+            <label for="destination">Destination:</label>
+            <input type="text" name="destination" th:value="${trip.destination}"><br>
+            
+            <label for="startDate">Start Date:</label>
+            <input type="date" name="startDate" th:value="${trip.startDate}"><br>
+            
+            <label for="endDate">End Date:</label>
+            <input type="date" name="endDate" th:value="${trip.endDate}"><br>
+            
+            <label for="budget">Budget:</label>
+            <input type="number" name="budget" th:value="${trip.budget}"><br>
+            
+            <label for="description">Description:</label>
+            <input type="text" name="description" th:value="${trip.description}"><br>
+            
+            <button type="submit">Update Trip</button>
+        </form>
+
+        <a href="/trips/list" class="back-link">Back to List</a>
+    </div>
 </body>
 </html>
