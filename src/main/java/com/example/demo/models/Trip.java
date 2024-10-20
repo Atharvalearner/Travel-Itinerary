@@ -11,20 +11,26 @@ public class Trip {
     private String startDate;
     private String endDate;
     private Double budget;
-
-    public Trip() {
+    private String description;
+    public Trip(String id, String tripName, String destination, String startDate, String endDate, Double budget,String description) {
+		super();
+		this.id = id;
+		this.tripName = tripName;
+		this.destination = destination;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.budget = budget;
+		this.description = description;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public Trip() {
         super();
     }
-    public Trip(String id, String tripName, String destination, String startDate, String endDate, Double budget) {
-        super();
-        this.id = id;
-        this.tripName = tripName;
-        this.destination = destination;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.budget = budget;
-    }
-
     public void setId(String id) {
 		this.id = id;
 	}

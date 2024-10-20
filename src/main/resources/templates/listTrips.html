@@ -12,6 +12,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Budget</th>
+            <th>Description</th>
             <th>Actions</th>
         </tr>
         <tr th:each="trip : ${trips}">
@@ -21,6 +22,7 @@
             <td th:text="${trip.startDate}"></td>
             <td th:text="${trip.endDate}"></td>
             <td th:text="${trip.budget}"></td>
+            <td th:text="${trip.description}"></td>
             <td>
                 <a th:href="@{/trips/edit/{id}(id=${trip.id})}">Edit</a>
                 <a th:href="@{/trips/delete/{id}(id=${trip.id})}">Delete</a>

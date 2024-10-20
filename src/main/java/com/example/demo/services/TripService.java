@@ -35,6 +35,7 @@ public class TripService {
     	t1.setEndDate(trip.getEndDate());
     	t1.setDestination(trip.getDestination());
     	t1.setBudget(trip.getBudget());
+    	t1.setDescription(trip.getDescription());
     	tripRepository.save(t1);
         return t1;
     }
